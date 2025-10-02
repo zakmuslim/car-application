@@ -1,0 +1,103 @@
+{
+    "car": {
+        "Toyota": [
+            "Corolla",
+            "Camry",
+            "Yaris",
+            "RAV4"
+        ],
+        "Mazda": [
+            "Mazda2",
+            "Mazda3",
+            "Mazda6",
+            "CX-5"
+        ],
+        "Subaru": [
+            "Impreza",
+            "Liberty",
+            "Outback",
+            "Forester"
+        ],
+        "BMW": [
+            "1 Series",
+            "3 Series",
+            "X1",
+            "X3"
+        ]
+    },
+    "ute": {
+        "Toyota": [
+            "HiLux"
+        ],
+        "Ford": [
+            "Ranger"
+        ],
+        "Isuzu": [
+            "D-MAX"
+        ],
+        "Mitsubishi": [
+            "Triton"
+        ],
+        "Nissan": [
+            "Navara"
+        ]
+    },
+    "truck": {
+        "Hino": [
+            "300",
+            "500"
+        ],
+        "Isuzu": [
+            "N Series",
+            "F Series"
+        ],
+        "Fuso": [
+            "Canter",
+            "Fighter"
+        ]
+    },
+    "van": {
+        "Toyota": [
+            "HiAce"
+        ],
+        "Hyundai": [
+            "Staria",
+            "iLoad"
+        ],
+        "Renault": [
+            "Trafic",
+            "Master"
+        ],
+        "Volkswagen": [
+            "Caddy",
+            "Transporter"
+        ]
+    },
+    "suv": {
+        "Toyota": [
+            "RAV4",
+            "Kluger",
+            "Prado"
+        ],
+        "Mazda": [
+            "CX-3",
+            "CX-5",
+            "CX-9"
+        ],
+        "Hyundai": [
+            "Kona",
+            "Tucson",
+            "Santa Fe"
+        ],
+        "Kia": [
+            "Seltos",
+            "Sportage",
+            "Sorento"
+        ],
+        "Subaru": [
+            "Forester",
+            "XV",
+            "Outback"
+        ]
+    }
+}
