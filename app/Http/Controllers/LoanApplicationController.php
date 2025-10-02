@@ -48,7 +48,7 @@ class LoanApplicationController extends Controller
         $loans = LoanApplication::query()
             ->search($term)->vehicleType($type)->status($status)
             ->orderByDesc('submitted_at')->paginate(10)->withQueryString();
-        return Inertia::render('Loans/Index', [
+        return Inertia::render('Consultant/Applications', [
             'filters' => ['q' => $term, 'vehicle_type' => $type, 'status' => $status],
             'loans' => $loans
         ]);

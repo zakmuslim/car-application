@@ -1,6 +1,8 @@
-<script setup>
+[<script setup>
 import { Link, router } from "@inertiajs/vue3";
 import { ref } from "vue";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import { Head } from "@inertiajs/vue3";
 const props = defineProps({ loans: Object, filters: Object });
 const q = ref(props.filters.q || "");
 const vehicle_type = ref(props.filters.vehicle_type || "");
@@ -16,7 +18,12 @@ function applyFilters() {
 }
 </script>
 <template>
-  <div class="p-6 max-w-6xl mx-auto">
+  <Head title="Loan Applications" />
+  <AuthenticatedLayout>
+    <template #header>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Loan Applications</h2>
+    </template>
+    <div class="p-6 max-w-6xl mx-auto">
     <h1 class="text-2xl font-semibold mb-4">Applications</h1>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
       <input
@@ -97,6 +104,7 @@ function applyFilters() {
       </div>
     </div>
   </div>
+  </AuthenticatedLayout>
 </template>
 <style scoped>
 .input {

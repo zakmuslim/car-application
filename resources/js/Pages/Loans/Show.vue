@@ -1,5 +1,7 @@
 <script setup>
 import { useForm, router } from "@inertiajs/vue3";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import { Head } from "@inertiajs/vue3";
 const props = defineProps({ loan: Object });
 const form = useForm({ status: props.loan.status });
 function save() {
@@ -11,7 +13,12 @@ function destroy() {
 }
 </script>
 <template>
-  <div class="max-w-3xl mx-auto p-6 space-y-6">
+  <Head :title="`Application #${loan.id}`" />
+  <AuthenticatedLayout>
+    <template #header>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Application Details</h2>
+    </template>
+    <div class="max-w-3xl mx-auto p-6 space-y-6">
     <h1 class="text-2xl font-semibold">Application #{{ loan.id }}</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div>
@@ -73,6 +80,7 @@ function destroy() {
       <button class="btn-danger ml-auto" @click="destroy">Delete</button>
     </div>
   </div>
+  </AuthenticatedLayout>
 </template>
 <style scoped>
 .label {

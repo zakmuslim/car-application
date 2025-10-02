@@ -1,11 +1,14 @@
 <script setup>
 import { useForm } from "@inertiajs/vue3";
 import { onMounted, ref, computed } from "vue";
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
+
 const vehicles = ref({});
 const makes = computed(() => Object.keys(vehicles.value?.[form.vehicle_type] || {}));
 const models = computed(
   () => vehicles.value?.[form.vehicle_type]?.[form.vehicle_make] || []
 );
+
 const form = useForm({
   applicant_full_name: "",
   email: "",
@@ -19,21 +22,29 @@ const form = useForm({
   term_months: 12,
   consent_to_credit_check: false,
 });
+
 onMounted(async () => {
   vehicles.value = await (await fetch("/vehicles")).json();
 });
+
 function submit() {
   form.post(route("loans.store"));
 }
+
 function onTypeChange() {
   form.vehicle_make = "";
   form.vehicle_model = "";
 }
+
 function onMakeChange() {
   form.vehicle_model = "";
 }
+
 </script>
+
+<Head title="Apply" />
 <template>
+  <AuthenticatedLayout>
   <div class="max-w-3xl mx-auto p-6">
     <h1 class="text-2xl font-semibold mb-4">Vehicle Loan Application</h1>
     <form @submit.prevent="submit" class="space-y-6">
@@ -167,9 +178,16 @@ function onMakeChange() {
       </button>
     </form>
   </div>
+  </AuthenticatedLayout>
 </template>
 <style scoped>
- .input{ @apply w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500; }
- .btn-primary{ @apply rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 disabled:opacity-50; }
- .error{ @apply text-sm text-red-600 mt-1; }
+.input {
+  @apply w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500;
+}
+.btn-primary {
+  @apply rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 disabled:opacity-50;
+}
+.error {
+  @apply text-sm text-red-600 mt-1;
+}
 </style>
