@@ -60,7 +60,7 @@ function submit() {
 <template>
   <Head title="Vehicle Loan Application" />
   <AuthenticatedLayout>
-  <div class="min-h-screen bg-[#f6f7f8] text-slate-800">
+  <div class="min-h-screen dark:bg-gray-800 text-slate-800">
     <main class="flex items-center justify-center py-10 px-4">
       <div class="w-full max-w-2xl">
         <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200">

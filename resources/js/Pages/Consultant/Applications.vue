@@ -31,7 +31,7 @@ function applyFilters() {
         <div class="flex items-center gap-2 text-sm text-slate-500">
           <Link :href="route('dashboard')" class="hover:text-indigo-600">Home</Link>
           <span>/</span>
-          <span class="text-slate-700">Applications</span>
+          <span class="text-slate-300">Applications</span>
         </div>
       </div>
     </template>
