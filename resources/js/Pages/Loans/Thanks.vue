@@ -7,7 +7,7 @@ import { Head } from "@inertiajs/vue3";
   <Head title="Application Submitted" />
   <AuthenticatedLayout>
     <template #header>
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Application Submitted</h2>
+      <h2 class="font-semibold text-xl text-white leading-tight">Application Submitted</h2>
     </template>
     <div class="max-w-xl mx-auto p-8 text-center">
       <h1 class="text-2xl font-semibold mb-2">Thanks!</h1>

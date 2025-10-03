@@ -50,7 +50,7 @@ class LoanApplicationController extends Controller
             ->orderByDesc('submitted_at')->paginate(10)->withQueryString();
         return Inertia::render('Consultant/Applications', [
             'filters' => ['q' => $term, 'vehicle_type' => $type, 'status' => $status],
-            'loans' => $loans
+            'loans' => $loans,
         ]);
     }
     public function show(LoanApplication $loan)

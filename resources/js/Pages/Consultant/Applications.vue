@@ -1,5 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
+import Pagination from '@/Components/Pagination.vue'
 import { Head, Link, router } from '@inertiajs/vue3'
 import { ref } from 'vue'
 
@@ -26,7 +27,13 @@ function applyFilters() {
   <Head title="Applications" />
   <AuthenticatedLayout>
     <template #header>
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Applications</h2>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2 text-sm text-slate-500">
+          <Link :href="route('dashboard')" class="hover:text-indigo-600">Home</Link>
+          <span>/</span>
+          <span class="text-slate-700">Applications</span>
+        </div>
+      </div>
     </template>
 
     <div class="py-6">
@@ -48,7 +55,7 @@ function applyFilters() {
                 <option value="approved">Approved</option>
                 <option value="declined">Declined</option>
               </select>
-              <button class="btn-primary" @click="applyFilters">Apply</button>
+              <button class="btn-primary" @click="applyFilters">Filter</button>
             </div>
 
             <div v-if="pending" class="space-y-2">
@@ -88,10 +95,7 @@ function applyFilters() {
               </div>
 
               <div class="mt-4 flex gap-2">
-                <Link v-for="link in loans.links" :key="link.url || link.label" :href="link.url || '#'"
-                      class="px-3 py-1 rounded border"
-                      :class="{ 'bg-indigo-600 text-white': link.active, 'text-gray-500': !link.url }"
-                      v-html="link.label" preserve-state />
+                <Pagination :source="loans" />
               </div>
             </div>
 
