@@ -31,14 +31,14 @@ class LoanApplicationController extends Controller
         $data['status'] = 'submitted';
         $data['submitted_at'] = now();
         LoanApplication::create($data);
-        return redirect()->route('loans.thanks');
+        return redirect()->route('loans.thanks')
+            ->with('success', 'Application submitted.');
     }
     public function thanks()
     {
         return Inertia::render('Loans/Thanks');
     }
 
-    // Consultant
     public function index(Request $r)
     {
         $this->authorize('viewAny', LoanApplication::class);
@@ -82,12 +82,12 @@ class LoanApplicationController extends Controller
         $this->authorize('update', $loan);
         $v = $r->validate(['status' => ['required', Rule::in(['submitted', 'in_review', 'approved', 'declined'])]]);
         $loan->update($v);
-        return back()->with('success', 'Status updated.');
+        return back()->with('success', "Status updated to {$loan->status}.");
     }
     public function destroy(LoanApplication $loan)
     {
         $this->authorize('delete', $loan);
         $loan->delete();
-        return redirect()->route('loans.index')->with('success', 'Application deleted.');
+        return redirect()->route('loans.index')->with('success', 'Application moved to trash.');
     }
 }

@@ -2,7 +2,6 @@
 
 class Kernel extends HttpKernel
 {
-    // 1) Global middleware (every request)
     protected $middleware = [
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
@@ -12,7 +11,6 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
-    // 2) Stacks used by route groups
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
@@ -30,7 +28,6 @@ class Kernel extends HttpKernel
         ],
     ];
 
-    // 3) Aliases you can attach to routes
     protected $routeMiddleware = [
         'verified'   => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
